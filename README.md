@@ -1,6 +1,7 @@
 # eToL-V: development of a rapid method for detecting viruses
 # Dissertation
 
+<<<<<<< HEAD
 ## 1. Structural protein homology analysis
 The scripts fetch_glycoproteins.py and fetch_majorcapsid.py are used to acquire coding region sequences of the herpesviral structural proteins. Fetch_proteins_exp.py is used to fetch structural protein sequences of the other three viral classes analysed in this project.
 
@@ -12,3 +13,7 @@ Run_blastp.py and filtered_similarity_matrix.py and tsne_filtered_herpes.py are 
 The second part of the project included a pipeline to design and test the performance of the probe sequences targeting viral genomes in the RNA-seq samples of the human brain. Plusstrand.py script parses BLAST results to find the strand orientations and converts them to plus strands, using reverse complementation. The following scripts can be used to generate probes for the four chosen viral classes: probes_final.py for herpesviruses, probeshadv.py for human adenoviruses, probeshpv2.py for human papillomaviruses, and probescorona.py for human coronaviruses.
 
 Final_probes.fasta is the final probe list that was used for the performance testing against EBB samples. Flagged_probeds.fasta includes the probe sequences that generated the positive signals of the viral genome presence in the samples. These sequences were then used to validate their results, many of which turned to be artifacts.
+=======
+The objective of the project was composing a Python-based workflow for accurate and efficient detection of the viral genome in the human samples.
+
+
