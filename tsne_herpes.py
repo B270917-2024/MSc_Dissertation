@@ -1,0 +1,77 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import AgglomerativeClustering
+from sklearn.manifold import TSNE
+from collections import Counter
+
+# File paths - adjust the file names according to previous outputs 
+distance_matrix_file = "glycoprotein_distance_matrix_mc.csv"
+n_clusters = 6  # Optimal number of clusters after manual testing
+output_plot = "tsne_clusters_mc_final_v1.png"
+output_csv = "tsne_clusters_mc_final_v1.csv"
+
+# Load distance matrix 
+dist_matrix = pd.read_csv(distance_matrix_file, index_col=0)
+
+# Perform Agglomerative Clustering 
+clusterer = AgglomerativeClustering(n_clusters=n_clusters, metric='precomputed', linkage='average')
+labels = clusterer.fit_predict(dist_matrix.values)
+
+# Run t-SNE embedding 
+tsne = TSNE(n_components=2, metric='precomputed', init='random', random_state=42)
+embedding = tsne.fit_transform(dist_matrix.values)
+
+# Prepare consistent colors for clusters 
+cmap = plt.get_cmap('tab10')
+colors = [cmap(i) for i in range(n_clusters)]
+
+# Plot the t-SNE results 
+plt.figure(figsize=(12, 8))
+scatter = plt.scatter(embedding[:, 0], embedding[:, 1], c=[colors[label] for label in labels], s=50, alpha=0.7)
+
+# Create legend handles matching cluster colors
+handles = [plt.Line2D([0], [0], marker='o', color='w',
+                      label=f'Cluster {i}',
+                      markerfacecolor=colors[i],
+                      markersize=10) for i in range(n_clusters)]
+
+plt.legend(handles=handles, title='Clusters', loc='best')
+plt.title('t-SNE Visualisation of HHV Sequences Coloured by Cluster')
+plt.xlabel('t-SNE 1')
+plt.ylabel('t-SNE 2')
+
+plt.savefig(output_plot, dpi=300, bbox_inches='tight')
+plt.close()
+print(f"Saved t-SNE plot as {output_plot}")
+
+# Save cluster labels and coordinates to CSV
+tsne_df = pd.DataFrame({
+    'Sequence_ID': dist_matrix.index,
+    'Cluster_Label': labels,
+    'TSNE_1': embedding[:, 0],
+    'TSNE_2': embedding[:, 1]
+})
+tsne_df.to_csv(output_csv, index=False)
+print(f"Saved t-SNE coordinates and cluster labels to {output_csv}")
+
+# Summarise cluster composition by virus/gene
+print("\nCluster composition summary (top virus/gene per cluster):")
+
+for cluster_id in range(n_clusters):
+    cluster_seqs = dist_matrix.index[labels == cluster_id]
+
+    # Extract virus + gene parts, e.g. "HSV-1_gB"
+    simplified_labels = []
+    for seq in cluster_seqs:
+        parts = seq.split("_")
+        if len(parts) >= 3:
+            simplified_labels.append(f"{parts[0]}_{parts[2]}")
+        else:
+            simplified_labels.append(seq)
+
+    most_common = Counter(simplified_labels).most_common(3)
+    print(f"Cluster {cluster_id}:")
+    for label, count in most_common:
+        print(f"  {label}: {count} sequences")
+    print()
