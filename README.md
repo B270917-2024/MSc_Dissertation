@@ -13,11 +13,6 @@ The second part of the project included a pipeline to design and test the perfor
 
 Final_probes.fasta is the final probe list that was used for the performance testing against EBB samples. Flagged_probes.fasta includes the probe sequences that generated the positive signals of the viral genome presence in the samples. These sequences were then used to validate their results, many of which turned to be artifact.
 
-=======
-The objective of the project was composing a Python-based workflow for accurate and efficient detection of the viral genome in the human samples.
-
-
-=======
 The objective of the project was composing a Python-based workflow for accurate and efficient detection of the viral genome in the human samples. The method included detection of four human viral classes in RNA-seq data by targeting viral structural proteins. Its effectiveness was thhen tested in the human brain samples obtained from Edinburgh Brain Bank (EBB), some of which were controls, and others had positive diagnosis in neurodegenerative disorders like **Alzheimer's disease, Lewis body disease, and Vascular dementia**.
 
 **Viral classes covered in this project**:
