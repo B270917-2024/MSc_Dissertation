@@ -1,8 +1,6 @@
 # eToL-V: development of a rapid method for detecting viruses
 # Dissertation
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 ## 1. Structural protein homology analysis
 The scripts fetch_glycoproteins.py and fetch_majorcapsid.py are used to acquire coding region sequences of the herpesviral structural proteins. Fetch_proteins_exp.py is used to fetch structural protein sequences of the other three viral classes analysed in this project.
 
