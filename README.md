@@ -38,7 +38,7 @@ Use the following scripts for probe design targeting the four viral classes:
 Additional script:  
 - `plusstrand.py`: Parses BLAST results to identify strand orientations and converts sequences to plus strand via reverse complementation.  
 
-## Heatmap Scripts
+Heatmap Scripts for results visualisation:
 
 - `heatmap_SRAs.py`: Visualises the initial probe hit results, displaying unvalidated probe signals across all EBB samples.  
 - `heatmap.py`: Generates the validated hit heatmap, showing only confirmed probe signals after artefact removal.  
