@@ -24,7 +24,7 @@ The project is divided into two main parts:
 - `run_virus_blast.sh`: Runs iterative BLASTp analysis through adenoviruses, papillomaviruses, and coronaviruses (manual run needed for herpesviruses).  
 - `glycoprotein_similaritydis_matrix.py` and `similaritydis_matrix.py`: Generate similarity and distance matrices for viral structural proteins and glycoproteins, assembling neighbour-joining phylogenetic trees in Newick format.  
 - `tsne_herpes.py` and `tsne_virus.py`: Perform agglomerative clustering and non-linear dimensionality reduction analysis on herpesvirus and other viral class sequences.  
-- `analyze_herpes.py` and `analyze_herpes_unnormalised.py`: Use to shortlist best scoring herpesvirus structural proteins from normalized and unnormalized datasets, respectively.  
+- `analyze_herpes.py` and `analyze_herpes_unnormalised.py`: Use to shortlist best scoring herpesvirus structural proteins from normalised and unnormalised datasets, respectively.  
 - `run_blastp.py`, `filtered_similarity_matrix.py`, and `tsne_filtered_herpes.py`: Scripts for additional BLASTp analysis, filtered similarity matrix generation, and clustering/dimensionality reduction on shortlisted herpesvirus proteins.  
 
 ## Part II: Probe Design and Testing Scripts
