@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-The project developed a a Python-based workflow to detect four human viral classes in RNA-seq data by targeting their structural proteins. It was validated using human brain samples obtained from the Edinburgh Brain Bank (EBB), including controls and samples diagnosed with neurodegenerative disorders such as **Alzheimer's disease, Lewy body disease, and vascular dementia**.
+The project developed a Python-based workflow to detect four human viral classes in RNA-seq data by targeting their structural proteins. It was validated using human brain samples obtained from the Edinburgh Brain Bank (EBB), including controls and samples diagnosed with neurodegenerative disorders such as **Alzheimer's disease, Lewy body disease, and vascular dementia**.
 
 ## Project Structure  
 The project is divided into two main parts:  
