@@ -30,7 +30,7 @@ The project is divided into two main parts:
 ## Part II: Probe Design and Testing Scripts
 
 Use the following scripts for probe design targeting the four viral classes:  
-- `probes_final.py`: Generates probes for herpesviruses.  
+- `probes_final.py`: Generates probes for human herpesviruses.  
 - `probeshadv.py`: Generates probes for human adenoviruses.  
 - `probeshpv2.py`: Generates probes for human papillomaviruses.  
 - `probescorona.py`: Generates probes for human coronaviruses.  
